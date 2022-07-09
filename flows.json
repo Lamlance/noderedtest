@@ -1,0 +1,712 @@
+[
+    {
+        "id": "e9b24c30a4540620",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e450621b199cf081",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "592d507661a9a882",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "6a135f887f0455f9",
+        "type": "ui_group",
+        "name": "Input",
+        "tab": "0ccc3a32a21160b9",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0ccc3a32a21160b9",
+        "type": "ui_tab",
+        "name": "EventLog",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ce412f0bddb8ae80",
+        "type": "ui_group",
+        "name": "LogMsg",
+        "tab": "0ccc3a32a21160b9",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a7daadaa5a2947d6",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "829cc55d4e5c6bf8",
+        "type": "ui_tab",
+        "name": "Quiz6",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "333bf816047cea1b",
+        "type": "ui_group",
+        "name": "Q6",
+        "tab": "829cc55d4e5c6bf8",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "271a2a3157310089",
+        "type": "ui_button",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "group": "6a135f887f0455f9",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "ClickMe",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "fa-star",
+        "payload": "Clicked",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 280,
+        "y": 260,
+        "wires": [
+            [
+                "a923f2f46ce0a7bd"
+            ]
+        ]
+    },
+    {
+        "id": "74313590e580cf17",
+        "type": "ui_switch",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "6a135f887f0455f9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 270,
+        "y": 320,
+        "wires": [
+            [
+                "8a8ae712d05c9b72"
+            ]
+        ]
+    },
+    {
+        "id": "b8ed535ea54c0188",
+        "type": "ui_slider",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "6a135f887f0455f9",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 270,
+        "y": 200,
+        "wires": [
+            [
+                "2d06db706658df31"
+            ]
+        ]
+    },
+    {
+        "id": "8a8ae712d05c9b72",
+        "type": "function",
+        "z": "e9b24c30a4540620",
+        "name": "SwitchEventHandler",
+        "func": "msg.topic = \"Switch\";\n\nif(msg.payload == 1){\n    msg.payload = \"True\"    \n}else{\n    msg.payload = \"False\"    \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 320,
+        "wires": [
+            [
+                "e99c95885b8c937b"
+            ]
+        ]
+    },
+    {
+        "id": "a923f2f46ce0a7bd",
+        "type": "function",
+        "z": "e9b24c30a4540620",
+        "name": "ButtonEventHandler",
+        "func": "msg.topic = \"Button\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 260,
+        "wires": [
+            [
+                "e99c95885b8c937b"
+            ]
+        ]
+    },
+    {
+        "id": "2d06db706658df31",
+        "type": "function",
+        "z": "e9b24c30a4540620",
+        "name": "SliderEventHandler",
+        "func": "msg.topic = \"Slider\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 200,
+        "wires": [
+            [
+                "e99c95885b8c937b"
+            ]
+        ]
+    },
+    {
+        "id": "743610ac6574d601",
+        "type": "ui_template",
+        "z": "e9b24c30a4540620",
+        "group": "ce412f0bddb8ae80",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<ul>\n    <li ng-repeat=\"x in msg.payload\">\n        <h1>{{x.topic}}</h1>\n        <ul>\n            <li>{{x.payload}}</li>\n        </ul>\n    </li>\n</ul>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1160,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e99c95885b8c937b",
+        "type": "function",
+        "z": "e9b24c30a4540620",
+        "name": "AddEventToArray",
+        "func": "var dashLog = flow.get(\"dashLog\") || [];\n\ndashLog.push(msg);\nif(dashLog.length > 10){\n    dashLog.shift()\n}\nflow.set(\"dashLog\",dashLog)\n\nmsg = {}\nmsg.payload = dashLog\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 360,
+        "wires": [
+            [
+                "743610ac6574d601"
+            ]
+        ]
+    },
+    {
+        "id": "99cbec199d8dbd67",
+        "type": "ui_dropdown",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "label": "MultiChoices",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "6a135f887f0455f9",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": true,
+        "options": [
+            {
+                "label": "Choice1:String",
+                "value": "Hello",
+                "type": "str"
+            },
+            {
+                "label": "Choice2:Number",
+                "value": 5,
+                "type": "num"
+            },
+            {
+                "label": "Choice3:Boolean",
+                "value": true,
+                "type": "bool"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 290,
+        "y": 380,
+        "wires": [
+            [
+                "607ac5f2d951bc61"
+            ]
+        ]
+    },
+    {
+        "id": "607ac5f2d951bc61",
+        "type": "function",
+        "z": "e9b24c30a4540620",
+        "name": "MultiChoicesEventHandler",
+        "func": "msg.topic = \"DropDown\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 380,
+        "wires": [
+            [
+                "e99c95885b8c937b"
+            ]
+        ]
+    },
+    {
+        "id": "a85661b9442e0fc3",
+        "type": "ui_numeric",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "label": "numeric",
+        "tooltip": "",
+        "group": "6a135f887f0455f9",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "10",
+        "step": 1,
+        "className": "",
+        "x": 280,
+        "y": 440,
+        "wires": [
+            [
+                "96802c62b1744cbe"
+            ]
+        ]
+    },
+    {
+        "id": "96802c62b1744cbe",
+        "type": "function",
+        "z": "e9b24c30a4540620",
+        "name": "NumericEventHandler",
+        "func": "msg.topic = \"Numeric\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 440,
+        "wires": [
+            [
+                "e99c95885b8c937b"
+            ]
+        ]
+    },
+    {
+        "id": "2b4f57198d606d13",
+        "type": "ui_text_input",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "label": "EnterTextToLog",
+        "tooltip": "",
+        "group": "6a135f887f0455f9",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 300,
+        "y": 500,
+        "wires": [
+            [
+                "278879d6210fe876"
+            ]
+        ]
+    },
+    {
+        "id": "278879d6210fe876",
+        "type": "function",
+        "z": "e9b24c30a4540620",
+        "name": "TextInputHandler",
+        "func": "msg.topic = \"TextInput\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 500,
+        "wires": [
+            [
+                "e99c95885b8c937b"
+            ]
+        ]
+    },
+    {
+        "id": "05945f499fd47fed",
+        "type": "mqtt in",
+        "z": "e450621b199cf081",
+        "name": "",
+        "topic": "20127047/name",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "a7daadaa5a2947d6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 460,
+        "y": 320,
+        "wires": [
+            [
+                "61cb082d6a33b6c0",
+                "f82441e405f5c604"
+            ]
+        ]
+    },
+    {
+        "id": "61cb082d6a33b6c0",
+        "type": "debug",
+        "z": "e450621b199cf081",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "239fecb60f06d64d",
+        "type": "mqtt out",
+        "z": "e450621b199cf081",
+        "name": "",
+        "topic": "20127047/mssv",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a7daadaa5a2947d6",
+        "x": 500,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "f82441e405f5c604",
+        "type": "ui_text",
+        "z": "e450621b199cf081",
+        "group": "333bf816047cea1b",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "StudentName",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 740,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "87528aec6e82c468",
+        "type": "ui_text_input",
+        "z": "e450621b199cf081",
+        "name": "",
+        "label": "mssv",
+        "tooltip": "",
+        "group": "333bf816047cea1b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 150,
+        "y": 400,
+        "wires": [
+            [
+                "3b27d815f25639ed"
+            ]
+        ]
+    },
+    {
+        "id": "3b27d815f25639ed",
+        "type": "function",
+        "z": "e450621b199cf081",
+        "name": "SaveMssvToFlow",
+        "func": "flow.set(\"mssv\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 240,
+        "wires": [
+            [
+                "333f1695a696fc3d"
+            ]
+        ]
+    },
+    {
+        "id": "65b428e0a727b468",
+        "type": "ui_button",
+        "z": "e450621b199cf081",
+        "name": "",
+        "group": "333bf816047cea1b",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "FindSVName",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 480,
+        "wires": [
+            [
+                "c02204bbcefca07d"
+            ]
+        ]
+    },
+    {
+        "id": "c02204bbcefca07d",
+        "type": "function",
+        "z": "e450621b199cf081",
+        "name": "",
+        "func": "const mssv = flow.get(\"mssv\") || \"\"\nmsg.payload = mssv\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 480,
+        "wires": [
+            [
+                "239fecb60f06d64d"
+            ]
+        ]
+    },
+    {
+        "id": "333f1695a696fc3d",
+        "type": "debug",
+        "z": "e450621b199cf081",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 240,
+        "wires": []
+    }
+]
