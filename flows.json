@@ -151,47 +151,147 @@
         "className": ""
     },
     {
-        "id": "9b4cdb4ed172d0d1",
-        "type": "inject",
-        "z": "e9b24c30a4540620",
+        "id": "b8c776276a85b9c3",
+        "type": "mqtt-broker",
         "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "40",
-        "payloadType": "num",
-        "x": 250,
-        "y": 240,
-        "wires": [
-            [
-                "20ee5625dd066c04"
-            ]
-        ]
+        "broker": "e6edc5b736244764a5f0d8308552e75d.s1.eu.hivemq.cloud",
+        "port": "8883",
+        "tls": "8ccd3f9086feb669",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
     },
     {
-        "id": "20ee5625dd066c04",
-        "type": "ui_gauge",
+        "id": "8ccd3f9086feb669",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "462dd7a2eb8347e6",
+        "type": "ui_button",
         "z": "e9b24c30a4540620",
         "name": "",
         "group": "7f7b8c3f581c6672",
         "order": 0,
         "width": 0,
         "height": 0,
+        "passthru": false,
+        "label": "GetData",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "GET",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "3b14f52155c6b3fc"
+            ]
+        ]
+    },
+    {
+        "id": "2b7a781f509c707c",
+        "type": "mqtt out",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "topic": "20127047/iot/res",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a7daadaa5a2947d6",
+        "x": 750,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "20c568340f5a1e9a",
+        "type": "function",
+        "z": "e9b24c30a4540620",
+        "name": "ReceiveDataHandler",
+        "func": "if(!msg.payload){\n    msg.payload = {\n        \"mq2\":0,\n        \"mq135\":0\n    }\n    return msg\n}\nmsg.payload = JSON.parse(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 260,
+        "wires": [
+            [
+                "9236e00c673334e0",
+                "e7eb308e52db6319",
+                "400fa5803592d5ec"
+            ]
+        ]
+    },
+    {
+        "id": "c16f246dbf71eb5d",
+        "type": "mqtt in",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "topic": "20127047/iot/res",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "a7daadaa5a2947d6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 260,
+        "wires": [
+            [
+                "20c568340f5a1e9a"
+            ]
+        ]
+    },
+    {
+        "id": "9236e00c673334e0",
+        "type": "ui_gauge",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "group": "7f7b8c3f581c6672",
+        "order": 1,
+        "width": 0,
+        "height": 0,
         "gtype": "gage",
-        "title": "gauge",
+        "title": "MQ2",
         "label": "units",
-        "format": "{{value}}",
+        "format": "{{msg.payload[\"mq2\"]}}",
         "min": 0,
         "max": "100",
         "colors": [
@@ -202,8 +302,87 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 430,
-        "y": 240,
+        "x": 770,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "e7eb308e52db6319",
+        "type": "ui_gauge",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "group": "7f7b8c3f581c6672",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "MQ135",
+        "label": "units",
+        "format": "{{msg.payload[\"mq135\"]}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 780,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "3b14f52155c6b3fc",
+        "type": "function",
+        "z": "e9b24c30a4540620",
+        "name": "RandomDataGenerate",
+        "func": "max = 100;\nmin = 0;\nmsg.payload = {\n    \"mq2\":Math.round(Math.random()*(max - min) + min),\n    \"mq135\":Math.round(Math.random()*(max - min) + min)\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 120,
+        "wires": [
+            [
+                "2b7a781f509c707c",
+                "11acb04ab2e2dd7d"
+            ]
+        ]
+    },
+    {
+        "id": "400fa5803592d5ec",
+        "type": "debug",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "11acb04ab2e2dd7d",
+        "type": "debug",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 40,
         "wires": []
     }
 ]
