@@ -4,5 +4,18 @@
         "user": "tester",
         "password": "Lamtest123"
     },
-    "8ccd3f9086feb669": {}
+    "8ccd3f9086feb669": {},
+    "eaebe7e05e225653": {
+        "jwtSecret": "vNgDshGB6sVnookkYZGn0LGv34ZiOPcO",
+        "nodeUsers": [
+            {
+                "username": "lam",
+                "password": "cc1685c006825f27f6180dd2895ab7b9f4f04181c49c5cc4344aa24f0ad4207efaf554b65a201c6168bfb25862032b889f603042800fad7f8dd8b3e881326ec7",
+                "scope": ""
+            }
+        ]
+    },
+    "864a9f96f2c13d6b": {},
+    "b1104f2f5d68c40b": {},
+    "214832ddb360c885": {}
 }

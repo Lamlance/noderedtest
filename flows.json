@@ -8,6 +8,14 @@
         "env": []
     },
     {
+        "id": "23d5d9426743cb56",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "592d507661a9a882",
         "type": "ui_base",
         "theme": {
@@ -190,6 +198,32 @@
         "servername": "",
         "verifyservercert": true,
         "alpnprotocol": ""
+    },
+    {
+        "id": "eaebe7e05e225653",
+        "type": "users_config",
+        "appPath": "/login",
+        "jwtCookieName": "nr.nodeUsers.jwt",
+        "jwtHttpsOnly": false
+    },
+    {
+        "id": "54ee414d70c7c741",
+        "type": "ui_tab",
+        "name": "Temperature",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "b863aa36b735aee4",
+        "type": "ui_group",
+        "name": "Temp",
+        "tab": "54ee414d70c7c741",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "462dd7a2eb8347e6",
@@ -384,5 +418,312 @@
         "x": 710,
         "y": 40,
         "wires": []
+    },
+    {
+        "id": "5822246a1e45414b",
+        "type": "inject",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 460,
+        "wires": [
+            [
+                "aa06254f2206ad78"
+            ]
+        ]
+    },
+    {
+        "id": "aa06254f2206ad78",
+        "type": "function",
+        "z": "e9b24c30a4540620",
+        "name": "Send Test Push Notification",
+        "func": "const API_KEY = \"ZTM4MDBjMmUtNWQzYi00MDQzLTg4MjYtM2QyNDg5MzYwNDI2\";\nconst ONESIGNAL_APP_ID = \"5226e28a-1e7a-44d8-b695-408542c59102\";\nconst BASE_URL = \"https://onesignal.com/api/v1\";\nconst body = {\n    app_id: ONESIGNAL_APP_ID,\n    included_segments: ['Subscribed Users'],\n    data: {\n    \tfoo: 'bar',\n    },\n    contents: {\n    \ten: `Notification \n    \tHello from node red`,\n    },\n};\nmsg.payload = body\nmsg.headers = {\n    'Content-Type': 'application/json',\n    'Authorization': `Basic ${API_KEY}`\n}\n//msg.payload = body ? JSON.stringify(body) : null\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 460,
+        "wires": [
+            [
+                "226f050be12f2cd1",
+                "214832ddb360c885"
+            ]
+        ]
+    },
+    {
+        "id": "214832ddb360c885",
+        "type": "http request",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://onesignal.com/api/v1/notifications",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 790,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "531c17596adb9baa",
+        "type": "inject",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "226f050be12f2cd1",
+        "type": "debug",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "f5160696640108c3",
+        "type": "ui_dropdown",
+        "z": "23d5d9426743cb56",
+        "name": "",
+        "label": "Select City",
+        "tooltip": "",
+        "place": "Select City",
+        "group": "b863aa36b735aee4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "HoChiMinh",
+                "value": 1566083,
+                "type": "num"
+            },
+            {
+                "label": "ThanhHoa",
+                "value": 1566166,
+                "type": "num"
+            },
+            {
+                "label": "HaNoi",
+                "value": 1581130,
+                "type": "num"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 150,
+        "y": 400,
+        "wires": [
+            [
+                "864a9f96f2c13d6b"
+            ]
+        ]
+    },
+    {
+        "id": "864a9f96f2c13d6b",
+        "type": "http request",
+        "z": "23d5d9426743cb56",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.openweathermap.org/data/2.5/weather?id={{payload}}&appid=339ef9607a68655dad113f65318683d2&units=metric",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 390,
+        "y": 400,
+        "wires": [
+            [
+                "71c5cd1b0725a5fe"
+            ]
+        ]
+    },
+    {
+        "id": "71c5cd1b0725a5fe",
+        "type": "json",
+        "z": "23d5d9426743cb56",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 570,
+        "y": 400,
+        "wires": [
+            [
+                "174610e8b0c87b5a"
+            ]
+        ]
+    },
+    {
+        "id": "174610e8b0c87b5a",
+        "type": "function",
+        "z": "23d5d9426743cb56",
+        "name": "ReceiveTemperatureHandler",
+        "func": "msg.temp = msg.payload.main.temp | 0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 400,
+        "wires": [
+            [
+                "76be9ea39fb2a36d"
+            ]
+        ]
+    },
+    {
+        "id": "76be9ea39fb2a36d",
+        "type": "ui_gauge",
+        "z": "23d5d9426743cb56",
+        "name": "",
+        "group": "b863aa36b735aee4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "{{payload.name}}",
+        "label": "Celcius",
+        "format": "{{temp}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#0080ff",
+            "#00ff40",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1030,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "af2d21a395f61a7c",
+        "type": "inject",
+        "z": "23d5d9426743cb56",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 220,
+        "wires": [
+            [
+                "ca06e46c8c14a12a"
+            ]
+        ]
+    },
+    {
+        "id": "b1104f2f5d68c40b",
+        "type": "http request",
+        "z": "23d5d9426743cb56",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "api.thingspeak.com/update?api_key=J5UGBRQEKIKN7O3L&field1={{random}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 530,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ca06e46c8c14a12a",
+        "type": "function",
+        "z": "23d5d9426743cb56",
+        "name": "Generate Random",
+        "func": "msg.random = Math.ceil(Math.random() * 100);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 160,
+        "wires": [
+            [
+                "b1104f2f5d68c40b"
+            ]
+        ]
     }
 ]
