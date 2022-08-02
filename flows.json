@@ -154,7 +154,7 @@
         "tab": "64d574e29cf605ab",
         "order": 1,
         "disp": true,
-        "width": "6",
+        "width": 15,
         "collapse": false,
         "className": ""
     },
@@ -226,12 +226,72 @@
         "className": ""
     },
     {
+        "id": "0eaabacacc4e60fd",
+        "type": "mongodb-aleph-config",
+        "hostname": "fcc-cluster.orezm.mongodb.net",
+        "topology": "dnscluster",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "FCC-Cluster",
+        "name": ""
+    },
+    {
+        "id": "36da95545286f8e6",
+        "type": "ui_spacer",
+        "z": "e9b24c30a4540620",
+        "name": "spacer",
+        "group": "7f7b8c3f581c6672",
+        "order": 3,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "03fedaeade5e499f",
+        "type": "ui_spacer",
+        "z": "e9b24c30a4540620",
+        "name": "spacer",
+        "group": "7f7b8c3f581c6672",
+        "order": 4,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "6b0436b3bc9f1702",
+        "type": "ui_spacer",
+        "z": "e9b24c30a4540620",
+        "name": "spacer",
+        "group": "7f7b8c3f581c6672",
+        "order": 5,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "41b95d3f2d7c7ec6",
+        "type": "ui_spacer",
+        "z": "e9b24c30a4540620",
+        "name": "spacer",
+        "group": "7f7b8c3f581c6672",
+        "order": 6,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "a25dc7406d6ac1d7",
+        "type": "ui_spacer",
+        "z": "e9b24c30a4540620",
+        "name": "spacer",
+        "group": "7f7b8c3f581c6672",
+        "order": 7,
+        "width": 5,
+        "height": 1
+    },
+    {
         "id": "462dd7a2eb8347e6",
         "type": "ui_button",
         "z": "e9b24c30a4540620",
         "name": "",
         "group": "7f7b8c3f581c6672",
-        "order": 0,
+        "order": 8,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -241,55 +301,33 @@
         "bgcolor": "",
         "className": "",
         "icon": "",
-        "payload": "GET",
+        "payload": "",
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 280,
-        "y": 120,
+        "x": 120,
+        "y": 180,
         "wires": [
             [
-                "3b14f52155c6b3fc"
+                "5690f02deda134eb"
             ]
         ]
-    },
-    {
-        "id": "2b7a781f509c707c",
-        "type": "mqtt out",
-        "z": "e9b24c30a4540620",
-        "name": "",
-        "topic": "20127047/iot/res",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "a7daadaa5a2947d6",
-        "x": 750,
-        "y": 120,
-        "wires": []
     },
     {
         "id": "20c568340f5a1e9a",
         "type": "function",
         "z": "e9b24c30a4540620",
         "name": "ReceiveDataHandler",
-        "func": "if(!msg.payload){\n    msg.payload = {\n        \"mq2\":0,\n        \"mq135\":0\n    }\n    return msg\n}\nmsg.payload = JSON.parse(msg.payload)\nreturn msg;",
+        "func": "if(!msg.payload){\n    msg.payload = {\n        \"mq2\":0,\n        \"mq135\":0\n    }\n    return msg\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
-        "y": 260,
+        "x": 660,
+        "y": 360,
         "wires": [
-            [
-                "9236e00c673334e0",
-                "e7eb308e52db6319",
-                "400fa5803592d5ec"
-            ]
+            []
         ]
     },
     {
@@ -297,19 +335,19 @@
         "type": "mqtt in",
         "z": "e9b24c30a4540620",
         "name": "",
-        "topic": "20127047/iot/res",
+        "topic": "20127047/data",
         "qos": "2",
         "datatype": "auto",
-        "broker": "a7daadaa5a2947d6",
+        "broker": "b8c776276a85b9c3",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 280,
-        "y": 260,
+        "x": 140,
+        "y": 360,
         "wires": [
             [
-                "20c568340f5a1e9a"
+                "704d2ba4f510ddeb"
             ]
         ]
     },
@@ -320,12 +358,12 @@
         "name": "",
         "group": "7f7b8c3f581c6672",
         "order": 1,
-        "width": 0,
-        "height": 0,
+        "width": 5,
+        "height": 5,
         "gtype": "gage",
-        "title": "MQ2",
-        "label": "units",
-        "format": "{{msg.payload[\"mq2\"]}}",
+        "title": "Temperature",
+        "label": "Celsius",
+        "format": "{{msg.temp}}",
         "min": 0,
         "max": "100",
         "colors": [
@@ -336,8 +374,8 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 770,
-        "y": 200,
+        "x": 1010,
+        "y": 140,
         "wires": []
     },
     {
@@ -347,76 +385,24 @@
         "name": "",
         "group": "7f7b8c3f581c6672",
         "order": 2,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "MQ135",
-        "label": "units",
-        "format": "{{msg.payload[\"mq135\"]}}",
+        "width": "4",
+        "height": "4",
+        "gtype": "wave",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{msg.humi}}",
         "min": 0,
         "max": "100",
         "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
+            "#2ed132",
+            "#27d3d8",
+            "#2046df"
         ],
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 780,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "3b14f52155c6b3fc",
-        "type": "function",
-        "z": "e9b24c30a4540620",
-        "name": "RandomDataGenerate",
-        "func": "max = 100;\nmin = 0;\nmsg.payload = {\n    \"mq2\":Math.round(Math.random()*(max - min) + min),\n    \"mq135\":Math.round(Math.random()*(max - min) + min)\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 480,
-        "y": 120,
-        "wires": [
-            [
-                "2b7a781f509c707c",
-                "11acb04ab2e2dd7d"
-            ]
-        ]
-    },
-    {
-        "id": "400fa5803592d5ec",
-        "type": "debug",
-        "z": "e9b24c30a4540620",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 810,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "11acb04ab2e2dd7d",
-        "type": "debug",
-        "z": "e9b24c30a4540620",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 710,
-        "y": 40,
+        "x": 1020,
+        "y": 220,
         "wires": []
     },
     {
@@ -440,8 +426,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
-        "y": 460,
+        "x": 160,
+        "y": 560,
         "wires": [
             [
                 "aa06254f2206ad78"
@@ -453,14 +439,14 @@
         "type": "function",
         "z": "e9b24c30a4540620",
         "name": "Send Test Push Notification",
-        "func": "const API_KEY = \"ZTM4MDBjMmUtNWQzYi00MDQzLTg4MjYtM2QyNDg5MzYwNDI2\";\nconst ONESIGNAL_APP_ID = \"5226e28a-1e7a-44d8-b695-408542c59102\";\nconst BASE_URL = \"https://onesignal.com/api/v1\";\nconst body = {\n    app_id: ONESIGNAL_APP_ID,\n    included_segments: ['Subscribed Users'],\n    data: {\n    \tfoo: 'bar',\n    },\n    contents: {\n    \ten: `Notification \n    \tHello from node red`,\n    },\n};\nmsg.payload = body\nmsg.headers = {\n    'Content-Type': 'application/json',\n    'Authorization': `Basic ${API_KEY}`\n}\n//msg.payload = body ? JSON.stringify(body) : null\nreturn msg;",
+        "func": "const emergencyMsg = msg.payload || \"Emergency\";\nconst API_KEY = \"ZTM4MDBjMmUtNWQzYi00MDQzLTg4MjYtM2QyNDg5MzYwNDI2\";\nconst ONESIGNAL_APP_ID = \"5226e28a-1e7a-44d8-b695-408542c59102\";\nconst BASE_URL = \"https://onesignal.com/api/v1\";\nconst body = {\n    app_id: ONESIGNAL_APP_ID,\n    included_segments: ['Subscribed Users'],\n    data: {\n    \tfoo: 'bar',\n    },\n    contents: {\n    \ten: `Notification ${emergencyMsg}`,\n    },\n};\nmsg.payload = body\nmsg.headers = {\n    'Content-Type': 'application/json',\n    'Authorization': `Basic ${API_KEY}`\n}\n//msg.payload = body ? JSON.stringify(body) : null\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 460,
+        "y": 560,
         "wires": [
             [
                 "226f050be12f2cd1",
@@ -482,8 +468,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 790,
-        "y": 560,
+        "x": 710,
+        "y": 640,
         "wires": [
             []
         ]
@@ -509,8 +495,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 180,
-        "y": 540,
+        "x": 160,
+        "y": 620,
         "wires": [
             []
         ]
@@ -524,12 +510,166 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 420,
+        "x": 710,
+        "y": 560,
         "wires": []
+    },
+    {
+        "id": "704d2ba4f510ddeb",
+        "type": "json",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 350,
+        "y": 360,
+        "wires": [
+            [
+                "20c568340f5a1e9a",
+                "fb14581c4731b736"
+            ]
+        ]
+    },
+    {
+        "id": "fb14581c4731b736",
+        "type": "mongodb-aleph-out",
+        "z": "e9b24c30a4540620",
+        "mongodb": "0eaabacacc4e60fd",
+        "name": "SaveData",
+        "collection": "clients",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 620,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aff74ef7eea11d42",
+        "type": "mongodb-aleph-in",
+        "z": "e9b24c30a4540620",
+        "mongodb": "0eaabacacc4e60fd",
+        "name": "Get the latest data",
+        "collection": "clients",
+        "operation": "find",
+        "x": 610,
+        "y": 180,
+        "wires": [
+            [
+                "87a64de710c22eeb"
+            ]
+        ]
+    },
+    {
+        "id": "5690f02deda134eb",
+        "type": "function",
+        "z": "e9b24c30a4540620",
+        "name": "Request data from mongodb",
+        "func": "msg.payload = \"\";\nmsg.limit = 1;\nmsg.sort = {_id:-1};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 180,
+        "wires": [
+            [
+                "aff74ef7eea11d42"
+            ]
+        ]
+    },
+    {
+        "id": "87a64de710c22eeb",
+        "type": "function",
+        "z": "e9b24c30a4540620",
+        "name": "DataHandler",
+        "func": "flow.set(\"temp\",msg.payload[0][\"temp\"]);\nflow.set(\"humi\",msg.payload[0][\"humi\"]);\nmsg.temp = msg.payload[0][\"temp\"];\nmsg.humi = msg.payload[0][\"humi\"]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 180,
+        "wires": [
+            [
+                "9236e00c673334e0",
+                "e7eb308e52db6319"
+            ]
+        ]
+    },
+    {
+        "id": "b336c026cbce4057",
+        "type": "mqtt in",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "topic": "20127047/emergency",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "b8c776276a85b9c3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 440,
+        "wires": [
+            [
+                "aa06254f2206ad78"
+            ]
+        ]
+    },
+    {
+        "id": "508ec1902f9d207e",
+        "type": "mqtt out",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "topic": "20127047/emergency",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "b8c776276a85b9c3",
+        "x": 360,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "c7769824b66c846a",
+        "type": "inject",
+        "z": "e9b24c30a4540620",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Fire!!",
+        "payloadType": "str",
+        "x": 150,
+        "y": 740,
+        "wires": [
+            [
+                "508ec1902f9d207e"
+            ]
+        ]
     },
     {
         "id": "f5160696640108c3",
